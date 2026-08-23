@@ -9,4 +9,4 @@
 
 # 打包ZIP忽略整个目录
 docs/ export-ignore
-README.md 
+README.md export-ignore
