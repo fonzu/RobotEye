@@ -3,7 +3,7 @@
 #include <Wire.h>
 #include <RobotEye.h>
 // ============================================================
-//  Hardware Configuration (Only modify here when changing screen/pins)
+//  Hardware Configuration (Only modify here when changing screen/pins).
 // ============================================================
 #define I2C_SDA_PIN     8       // I2C SDA pin
 #define I2C_SCL_PIN     9       // I2C SCL pin
