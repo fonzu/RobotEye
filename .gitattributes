@@ -1,0 +1,17 @@
+
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.h text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+
+*.png binary
+*.jpg binary
+
+# 打包导出ZIP时忽略教程文档、图片目录
+docs/ export-ignore
+README.md
+
+
+
+

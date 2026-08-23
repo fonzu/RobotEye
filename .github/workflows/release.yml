@@ -1,0 +1,25 @@
+name: Build Clean Library Archive
+# 触发条件：推送以 v 开头的版本标签
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-package:
+    runs-on: ubuntu-latest
+    steps:
+      # 拉取完整仓库代码
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      # 使用 git archive 打包（自动遵守 .gitattributes 剔除无关文件）
+      - name: Create clean zip package
+        run: |
+          git archive --format=zip --prefix=RobotEye/ -o RobotEye-${GITHUB_REF#refs/tags/v}.zip HEAD
+
+      # 自动创建Release，并上传生成的纯净zip包
+      - name: Upload zip to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: RobotEye-*.zip
