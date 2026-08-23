@@ -1,4 +1,3 @@
-
 *.cpp text eol=lf
 *.hpp text eol=lf
 *.h text eol=lf
@@ -8,10 +7,6 @@
 *.png binary
 *.jpg binary
 
-# 打包导出ZIP时忽略教程文档、图片目录
+# 打包ZIP忽略整个目录
 docs/ export-ignore
-README.md
-
-
-
-
+README.md 
