@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   build-package:
     runs-on: ubuntu-latest
@@ -16,10 +19,10 @@ jobs:
       # 使用 git archive 打包（自动遵守 .gitattributes 剔除无关文件）
       - name: Create clean zip package
         run: |
-          git archive --format=zip --prefix=RobotEye/ -o RobotEye-${GITHUB_REF#refs/tags/v}.zip HEAD
+          git archive --format=zip --prefix=RobotEye/ -o RobotEye-${GITHUB_REF#refs/tags/}.zip HEAD
 
-      # 自动创建Release，并上传生成的纯净zip包
+      # 自动创建Release，并上传生成的纯净zip包，升级到v3原生Node24
       - name: Upload zip to GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
           files: RobotEye-*.zip
